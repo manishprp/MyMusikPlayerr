@@ -9,6 +9,7 @@ using Android.Text;
 using AndroidX.AppCompat.App;
 using AndroidX.AppCompat.Widget;
 using AndroidX.RecyclerView.Widget;
+using MyMusikPlayerr.Adapters;
 using System;
 using System.Collections.Generic;
 using static Android.Provider.MediaStore;
@@ -20,7 +21,10 @@ namespace MyMusikPlayerr
     public class MainActivity : AppCompatActivity
     {
         private Toolbar _toolbar;
+        private MusicListAdapter _musicListAdapter;
         private RecyclerView _musicRecyclerView;
+        private List<string> title = new List<string>();
+        private List<string> path = new List<string>();
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -29,12 +33,19 @@ namespace MyMusikPlayerr
             UiConnection();
             SetupToolbar();
             FetchMusic();
+            SetupRecyclerView();
+        }
+
+        private void SetupRecyclerView()
+        {
+            _musicRecyclerView.SetLayoutManager(new LinearLayoutManager(this));
+            _musicListAdapter = new MusicListAdapter(title);
+            _musicRecyclerView.SetAdapter(_musicListAdapter);
         }
 
         private void FetchMusic()
         {
-            List<string> title = new List<string>();
-            List<string> path = new List<string>();
+           
             ContentResolver cr = this.ContentResolver;
             var uri = MediaStore.Audio.Media.InternalContentUri;
             ICursor cur = cr.Query(uri, null, null, null, null);
