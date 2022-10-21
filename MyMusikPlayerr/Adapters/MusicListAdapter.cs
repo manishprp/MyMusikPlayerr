@@ -1,6 +1,7 @@
 ﻿using Android.Views;
 using Android.Widget;
 using AndroidX.RecyclerView.Widget;
+using MyMusikPlayerr.Model;
 using System;
 using System.Collections.Generic;
 
@@ -10,9 +11,9 @@ namespace MyMusikPlayerr.Adapters
     {
         public event EventHandler<MusicListAdapterClickEventArgs> ItemClick;
         public event EventHandler<MusicListAdapterClickEventArgs> ItemLongClick;
-        List<string> items;
+        List<SongData> items;
 
-        public MusicListAdapter(List<string> data)
+        public MusicListAdapter(List<SongData> data)
         {
             items = data;
         }
@@ -37,7 +38,7 @@ namespace MyMusikPlayerr.Adapters
 
             // Replace the contents of the view with that element
             var holder = viewHolder as MusicListAdapterViewHolder;
-            holder.textViewSongName.Text = items[position];
+            holder.textViewSongName.Text = item.Name;
         }
 
         public override int ItemCount => items.Count;

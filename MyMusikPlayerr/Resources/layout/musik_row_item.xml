@@ -4,22 +4,24 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/rowItemConstraintLayout"
     android:layout_width="match_parent"
-    android:layout_height="60dp"
+    android:layout_height="50dp"
+    
+    android:fitsSystemWindows="true"
     android:layout_marginTop="5dp"
     android:layout_marginBottom="5dp"
-    android:background="#CFFF8D"
-    android:backgroundTint="#CFFF8D"
-    android:paddingTop="0dp"
-    android:paddingBottom="0dp">
+    
+   >
 
     <ImageView
         android:id="@+id/songImage"
-        android:layout_width="50dp"
+        
+        android:layout_width="60dp"
         android:layout_height="match_parent"
+        android:background="#222831"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:src="@color/colorAccent" />
+        android:src="@drawable/song"/>
 
     <TextView
         android:id="@+id/textViewSongName"
@@ -27,7 +29,13 @@
         android:layout_height="0dp"
         android:gravity="center"
         android:text="Song Name"
-        android:textColor="#425F57"
+        android:background="#525252"
+    android:backgroundTint="#525252"
+        android:singleLine="true"
+        android:ellipsize="marquee"
+        android:scrollHorizontally="true"
+        android:marqueeRepeatLimit="marquee_forever"
+        android:textColor="#ffff"
         android:textSize="18sp"
         android:textStyle="bold|italic"
         app:layout_constraintBottom_toBottomOf="parent"
