@@ -24,7 +24,6 @@ namespace MyMusikPlayerr
         private MusicListAdapter _musicListAdapter;
         private RecyclerView _musicRecyclerView;
         private List<SongData> _songData = new List<SongData>();
-        private MediaPlayer _mediaPlayer ;
         private PermissionStatus _permissionStatus;
         protected override async void OnCreate(Bundle savedInstanceState)
         {
@@ -51,7 +50,6 @@ namespace MyMusikPlayerr
         {
             //if (_mediaPlayer != null)
             //    _mediaPlayer.Release();
-            _mediaPlayer = MediaPlayer.Create(this, Uri.Parse(_songData[e.Position].Path));
             //_mediaPlayer.Start();
             Intent intent = new Intent(this, typeof(SelectedMusicActivity));
             intent.PutExtra("path", _songData[e.Position].Path);
