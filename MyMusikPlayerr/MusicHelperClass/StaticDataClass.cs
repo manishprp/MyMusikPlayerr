@@ -1,5 +1,4 @@
-﻿using Android.Service.Voice;
-using MyMusikPlayerr.Model;
+﻿using MyMusikPlayerr.Model;
 using System.Collections.Generic;
 
 namespace MyMusikPlayerr.MusicHelperClass
@@ -13,7 +12,7 @@ namespace MyMusikPlayerr.MusicHelperClass
             mainSongList = mainSongListIn;
         }
 
-        public static List<SongData> GetSongList ()
+        public static List<SongData> GetSongList()
         {
             return mainSongList;
         }

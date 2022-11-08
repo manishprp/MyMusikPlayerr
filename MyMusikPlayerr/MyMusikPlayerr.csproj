@@ -65,9 +65,13 @@
     <Compile Include="Adapters\MusicListAdapter.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="Model\SongData.cs" />
+    <Compile Include="MusicHelperClass\CreateNotification.cs" />
+    <Compile Include="MusicHelperClass\ManipulateMusicFromNotificationWithoutActivity.cs" />
     <Compile Include="MusicHelperClass\MusicPlayerStaticCLass.cs" />
-    <Compile Include="MusicHelperClass\PhoneStateListenerClass.cs" />
+    <Compile Include="MusicHelperClass\MusicPlayService.cs" />
     <Compile Include="MusicHelperClass\StaticDataClass.cs" />
+    <Compile Include="MusicPlayingAndSelectionActivity.cs" />
+    <Compile Include="Receiver\VolumeManagerReceiver.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SelectedMusicActivity.cs" />
@@ -115,7 +119,10 @@
     <PackageReference Include="Xamarin.AndroidX.ConstraintLayout">
       <Version>2.1.4.2</Version>
     </PackageReference>
-    <PackageReference Include="Xamarin.Google.Android.Material" Version="1.7.0" />
+    <PackageReference Include="Xamarin.AndroidX.Media">
+      <Version>1.6.0.2</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.Google.Android.Material" Version="1.7.0.1" />
     <PackageReference Include="Xamarin.Essentials" Version="1.7.3" />
   </ItemGroup>
   <ItemGroup>
@@ -135,6 +142,21 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\play_buton.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\musical_note.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\ic_search.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\menu\search_menu.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\notification_view.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\music_player_single_activity.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

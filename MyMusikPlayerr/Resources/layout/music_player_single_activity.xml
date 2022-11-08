@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:fitsSystemWindows="true"
+    android:background="#b5b0b0"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:id="@+id/appBar"
+        android:layout_height="wrap_content">
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/colorPrimary"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="?attr/actionBarTheme"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:visibility="visible"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/musicPlayingCurrentlyImage"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintTop_toBottomOf="@+id/appBar"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <include
+        android:id="@+id/selectedMusicInclude"
+        android:visibility="gone"
+        layout="@layout/selected_music"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <ImageView
+        tools:visibility="visible"
+        app:layout_constraintTop_toBottomOf="@id/recyclerView"
+        android:contentDescription="Music Playing Currently Image"
+        android:id="@+id/musicPlayingCurrentlyImage"
+        android:layout_marginRight="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_width="60dp"
+        android:layout_height="60dp"/>
+    <TextView
+        tools:visibility="visible"
+        android:textColor="#000000"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/previousImageVIew"
+        app:layout_constraintBottom_toBottomOf="@id/musicPlayingCurrentlyImage"
+        app:layout_constraintTop_toTopOf="@id/musicPlayingCurrentlyImage"
+        app:layout_constraintStart_toEndOf="@+id/musicPlayingCurrentlyImage"
+        android:text="KK Song"
+        android:layout_width="wrap_content"
+        android:id="@+id/currentlyPlayingMusicTextView"
+        android:layout_height="wrap_content"/>
+    <ImageView
+        tools:visibility="gone"
+        android:layout_marginRight="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/musicPlayingCurrentlyImage"
+        app:layout_constraintTop_toTopOf="@id/musicPlayingCurrentlyImage"
+        android:id="@+id/nextImageVIew"
+        android:contentDescription="Next"
+        android:background="@drawable/forward_music"
+        android:layout_width="30dp"
+        android:layout_height="30dp"/>
+    <ImageView
+        tools:visibility="gone"
+        android:layout_marginRight="10dp"
+        app:layout_constraintEnd_toStartOf="@+id/nextImageVIew"
+        app:layout_constraintBottom_toBottomOf="@id/musicPlayingCurrentlyImage"
+        app:layout_constraintTop_toTopOf="@id/musicPlayingCurrentlyImage"
+        android:id="@+id/playOrPauseImageVIew"
+        android:contentDescription="Play/Pause"
+        android:background="@drawable/play_buton"
+        android:layout_width="30dp"
+        android:layout_height="30dp"/>
+    <ImageView
+        tools:visibility="gone"
+        android:layout_marginRight="10dp"
+        app:layout_constraintEnd_toStartOf="@+id/playOrPauseImageVIew"
+        app:layout_constraintBottom_toBottomOf="@id/musicPlayingCurrentlyImage"
+        app:layout_constraintTop_toTopOf="@id/musicPlayingCurrentlyImage"
+        android:id="@+id/previousImageVIew"
+        android:contentDescription="Previous"
+        android:background="@drawable/rewind_music"
+        android:layout_width="30dp"
+        android:layout_height="30dp"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

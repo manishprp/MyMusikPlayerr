@@ -46,6 +46,11 @@ namespace MyMusikPlayerr.Adapters
         void OnClick(MusicListAdapterClickEventArgs args) => ItemClick?.Invoke(this, args);
         void OnLongClick(MusicListAdapterClickEventArgs args) => ItemLongClick?.Invoke(this, args);
 
+        public void FilterSearched(List<SongData> list)
+        {
+            items = list;
+            NotifyDataSetChanged();
+        }
     }
 
     public class MusicListAdapterViewHolder : RecyclerView.ViewHolder
@@ -56,10 +61,9 @@ namespace MyMusikPlayerr.Adapters
         public MusicListAdapterViewHolder(View itemView, Action<MusicListAdapterClickEventArgs> clickListener,
                             Action<MusicListAdapterClickEventArgs> longClickListener) : base(itemView)
         {
-            //TextView = v;
             textViewSongName = itemView.FindViewById<TextView>(Resource.Id.textViewSongName);
-            itemView.Click += (sender, e) => clickListener(new MusicListAdapterClickEventArgs { View = itemView, Position = AdapterPosition });
-            itemView.LongClick += (sender, e) => longClickListener(new MusicListAdapterClickEventArgs { View = itemView, Position = AdapterPosition });
+            itemView.Click += (sender, e) => clickListener(new MusicListAdapterClickEventArgs { View = itemView, Position = LayoutPosition });
+            itemView.LongClick += (sender, e) => longClickListener(new MusicListAdapterClickEventArgs { View = itemView, Position = LayoutPosition });
         }
     }
 
@@ -67,5 +71,6 @@ namespace MyMusikPlayerr.Adapters
     {
         public View View { get; set; }
         public int Position { get; set; }
+
     }
 }
